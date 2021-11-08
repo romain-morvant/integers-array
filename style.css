@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ #canvas{
+     padding: 5rem;
+     background-color: #24292E;
+ }
+input{
+    width: 100%;
+}
