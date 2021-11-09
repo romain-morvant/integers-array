@@ -34,25 +34,24 @@ function genMultipleArrays(rows, cols, count) {
 }
 
 
-function drawGrid(grid, cellSize = 30) {
-    console.log(grid, cellSize);
+function drawGrid(grid, cellSize = 40) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // console.log(grid);
     let gap = cellSize / 10;
+    console.log(grid);
 
     for (let col = 0; col < grid.length; col++) {
         for (let row = 0; row < grid[col].length; row++) {
-            // console.log(col, row);
             let color = grid[col][row];
-            // console.log(color);
+            ctx.font = '14px sans-serif';
             ctx.fillStyle = 'hsl(' + color + ',60%,60%)';
             ctx.fillRect(row * (cellSize + gap), col * (cellSize + gap), cellSize, cellSize);
+            ctx.strokeText(`${color}`, row * (cellSize + gap) + 10, col * (cellSize + gap) + 25);
             ctx.fill();
         }
     }
 }
 
-let extGrid = genMultipleArrays(10, 10, 10);
+let extGrid = genMultipleArrays(10, 10, 40);
 // console.log(extGrid);
 drawGrid(extGrid[9]);
 
