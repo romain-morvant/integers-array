@@ -20,6 +20,7 @@ function makeIntArray(rows, cols) {
         }
         intArray.push(integers);
     }
+    // console.log(intArray);
     return intArray;
 }
 
@@ -28,27 +29,32 @@ function genMultipleArrays(rows, cols, count) {
     for (let i = 0; i < count; i++) {
         array.push(makeIntArray(rows, cols));
     }
+    // console.log(array);
     return array;
 }
 
 
-function drawGrid(grid, cellSize) {
+function drawGrid(grid, cellSize = 30) {
+    console.log(grid, cellSize);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    console.log(grid);
-    let gap = 6;
-    for (let x = 0; x < grid.length; x++) {
-        for (let y = 0; y < grid[x].length; y++) {
-            let color = grid[x][y];
-            ctx.lineWidth = 1;
+    // console.log(grid);
+    let gap = cellSize / 10;
+
+    for (let col = 0; col < grid.length; col++) {
+        for (let row = 0; row < grid[col].length; row++) {
+            // console.log(col, row);
+            let color = grid[col][row];
+            // console.log(color);
             ctx.fillStyle = 'hsl(' + color + ',60%,60%)';
-            ctx.fillRect(x * (cellSize + gap), y * (cellSize + gap), cellSize, cellSize);
+            ctx.fillRect(row * (cellSize + gap), col * (cellSize + gap), cellSize, cellSize);
             ctx.fill();
         }
     }
 }
 
 let extGrid = genMultipleArrays(10, 10, 10);
-drawGrid(extGrid[9], 30);
+// console.log(extGrid);
+drawGrid(extGrid[9]);
 
 
 /**
@@ -60,16 +66,9 @@ drawGrid(extGrid[9], 30);
  */
 
 
-
-
-
-
-
-// rangeSlider.addEventListener('onchange', () => {
-//     let value = rangeSlider.value;
-//     let grids = genMultipleArrays(value,0 10);
-//     drawGrid(grids[value], 40);
-// });
+rangeSlider.addEventListener('change', (e) => {
+    drawGrid(extGrid[+e.target.value]);
+});
 
 // rangeSlider.onchange = value([value]);
 // switch (value) {
