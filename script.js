@@ -33,7 +33,6 @@ function genMultipleArrays(rows, cols, count) {
     return array;
 }
 
-
 function drawGrid(grid, cellSize = 40) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let gap = cellSize / 10;
@@ -56,62 +55,7 @@ let extGrid = genMultipleArrays(10, 10, 40);
 drawGrid(extGrid[9]);
 
 
-/**
- * 1- Générer un tableau d'entiers aléatoires paramétrable (rows & cols)
- * 2- Générer un ensemble de tableaux (étape 1)
- * 3- Déssiner la grille sélectionnée (en fonction de la valeur de l'input)
- * 4- Ajouter 'onchange' addEventListener input
- **
- */
-
-
 rangeSlider.addEventListener('change', (e) => {
     drawGrid(extGrid[+e.target.value]);
 });
 
-// rangeSlider.onchange = value([value]);
-// switch (value) {
-//     case 0:
-//         drawGrid(grids[0], 40);
-//         console.log('Range value = 0');
-//         break;
-//     case 1:
-//         drawGrid(grids[1], 40);
-//         console.log('Range value = 1');
-//         break;
-//     case 2:
-//         drawGrid(grids[2], 40);
-//         console.log('Range value = 2');
-//         break;
-//     case 3:
-//         drawGrid(grids[3], 40);
-//         console.log('Range value = 3');
-//         break;
-//     case 4:
-//         drawGrid(grids[4], 40);
-//         console.log('Range value = 4');
-//         break;
-//     case 5:
-//         drawGrid(grids[5], 40);
-//         console.log('Range value = 5');
-//         break;
-//     case 6:
-//         drawGrid(grids[6], 40);
-//         console.log('Range value = 6');
-//         break;
-//     case 7:
-//         drawGrid(grids[7], 40);
-//         console.log('Range value = 7');
-//         break;
-//     case 8:
-//         drawGrid(grids[8], 40);
-//         console.log('Range value = 8');
-//         break;
-//     case 9:
-//         drawGrid(grids[9], 40);
-//         console.log('Range value = 9');
-//         break;
-//     default:
-//         console.log('Default');
-//         break;
-// }
