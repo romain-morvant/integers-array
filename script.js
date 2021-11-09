@@ -34,17 +34,42 @@ let extArray = genMultipleArrays(10, 10, 10);
 
 function drawGrid(grid, cellSize) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // console.log(grid);
+    console.log(grid);
     let gap = 6;
     for (let x = 0; x < grid.length; x++) {
         for (let y = 0; y < grid[x].length; y++) {
             let color = grid[x][y];
+            // console.log(color);
+            ctx.lineWidth = 1;
             ctx.fillStyle = 'hsl(' + color + ',60%,60%)';
             ctx.fillRect(x * (cellSize + gap), y * (cellSize + gap), cellSize, cellSize);
             ctx.fill();
         }
     }
 }
+
+
+// let rangeValue = rangeSlider.value;
+let extGrid = genMultipleArrays(10, 10, 10);
+drawGrid(extGrid[9], 30);
+
+
+// setInterval(genGrid, 6000, 10, 10, 40);
+
+
+/**
+ * 1- Générer un tableau d'entiers aléatoires paramétrable (rows & cols)
+ * 2- Générer un ensemble de tableaux (étape 1)
+ * 3- Déssiner la grille sélectionnée (en fonction de la valeur de l'input)
+ * 4- Ajouter 'onchange' addEventListener input
+ **
+ */
+
+
+
+
+
+
 
 // rangeSlider.addEventListener('onchange', () => {
 //     let value = rangeSlider.value;
@@ -98,20 +123,3 @@ function drawGrid(grid, cellSize) {
 //         console.log('Default');
 //         break;
 // }
-
-let rangeValue = 6;
-let grids = genMultipleArrays(10, 10, 10);
-drawGrid(grids[rangeValue], 40);
-
-
-// setInterval(genGrid, 6000, 10, 10, 40);
-
-
-/**
- * 1- Générer un tableau d'entiers aléatoires paramétrable (rows & cols)
- * 2- Générer un ensemble de tableaux (étape 1)
- * 3- Déssiner la grille sélectionnée (en fonction de la valeur de l'input)
- * 4- Ajouter 'onchange' addEventListener input
- *
- *
- */
