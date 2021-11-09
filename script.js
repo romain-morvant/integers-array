@@ -1,7 +1,8 @@
 const canvas = document.getElementById('canvas');
-// const range = document.getElementById('value');
 const ctx = canvas.getContext('2d', { alpha: true });
 const rangeSlider = document.getElementById('slider__range');
+// let rangeValue = rangeSlider.value;
+
 
 // Redimensionnement
 canvas.height = window.innerHeight;
@@ -30,7 +31,6 @@ function genMultipleArrays(rows, cols, count) {
     return array;
 }
 
-let extArray = genMultipleArrays(10, 10, 10);
 
 function drawGrid(grid, cellSize) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -39,7 +39,6 @@ function drawGrid(grid, cellSize) {
     for (let x = 0; x < grid.length; x++) {
         for (let y = 0; y < grid[x].length; y++) {
             let color = grid[x][y];
-            // console.log(color);
             ctx.lineWidth = 1;
             ctx.fillStyle = 'hsl(' + color + ',60%,60%)';
             ctx.fillRect(x * (cellSize + gap), y * (cellSize + gap), cellSize, cellSize);
@@ -48,13 +47,8 @@ function drawGrid(grid, cellSize) {
     }
 }
 
-
-// let rangeValue = rangeSlider.value;
 let extGrid = genMultipleArrays(10, 10, 10);
 drawGrid(extGrid[9], 30);
-
-
-// setInterval(genGrid, 6000, 10, 10, 40);
 
 
 /**
