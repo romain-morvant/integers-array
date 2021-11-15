@@ -46,7 +46,7 @@ function drawGrid(grid, cellSize = 40) {
             ctx.font = '14px sans-serif';
             ctx.fillStyle = 'hsl(' + color + ',60%,60%)';
             ctx.fillRect(x, y, cellSize, cellSize);
-            ctx.strokeText(`${color}`, x + 10, y + 25);
+            ctx.strokeText(`${color}`, x + (cellSize / 4), y + (cellSize / 2));
             ctx.fill();
         }
     }
@@ -54,8 +54,7 @@ function drawGrid(grid, cellSize = 40) {
 
 let extGrid = genMultipleArrays(10, 10, 40);
 // console.log(extGrid);
-drawGrid(extGrid[9]);
-
+drawGrid(extGrid[9], 100);
 
 rangeSlider.addEventListener('change', (e) => {
     drawGrid(extGrid[+e.target.value]);
